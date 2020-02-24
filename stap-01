@@ -1,0 +1,29 @@
+'''Les01'''
+import time             # importeer de benodigde code om te kunnen werken met tijd
+import RPi.GPIO as GPIO # Importeer de benodigde code voor de GPIO pinnen
+
+GPIO.setmode(GPIO.BCM)  # De gekozen pinnummering voor de GPIO pinnen
+#GPIO.setmode(GPIO.BOARD)
+
+# GPIO pin - setup
+GPIO.setup(13, GPIO.OUT)    # ENA Deze pin wordt gebruikt om de spanning te regelen voor de rechter motor
+GPIO.setup(6, GPIO.OUT)     # IN1 de INx pinnen worden gebruikt om de draairichting van de motor te configureren
+GPIO.setup(5, GPIO.OUT)     # IN2
+
+GPIO.setup(16, GPIO.OUT)    # IN3
+GPIO.setup(26, GPIO.OUT)    # IN4
+GPIO.setup(12, GPIO.OUT)    # ENB Deze pin wordt gebruikt om de spanning te regelen voor de linker motor
+
+RECHTS = GPIO.PWM(13, 100)      # Creeer een PWM kanaal op GPIO pin 13 met een frequentie van 100
+LINKS = GPIO.PWM(12, 100)       # Creeer een PWM kanaal op GPIO pin 12 met een frequentie van 100
+
+#opdracht 1: Voeg code toe zodat ook het linker wiel naar voren gaat draaien met snelheid 50
+
+RECHTS.start(50)                # Zet de het spanningniveau voor de rechter motor op 50%
+GPIO.output(6, GPIO.HIGH)   	# Per motor moet er altijd 1 pin HIGH en 1 pin Low zijn om de motor te laten draaien.
+GPIO.output(5, GPIO.LOW)    	# Als je de HIGH en LOW omdraaid veranderd de draairichting.
+time.sleep(1)                   # wacht 1 seconde
+RECHTS.stop()                   # Haal de spanning van de rechter motor, let op de GPIO pinnen blijven High !!!
+
+GPIO.cleanup()                  # maakt de GPIO.setup weer ongedaan
+# einde programma
