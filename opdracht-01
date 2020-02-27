@@ -20,8 +20,8 @@ LINKS = GPIO.PWM(12, 100)       # Creeer een PWM kanaal op GPIO pin 12 met een f
 #opdracht-01: Voeg de benodigde code toe zodat ook het linker wiel naar voren gaat draaien met snelheid 500
 
 RECHTS.start(50)                # Zet de het spanningniveau voor de rechter motor op 50%
-GPIO.output(6, GPIO.HIGH)   	  # Per motor moet er altijd 1 pin HIGH en 1 pin Low zijn om de motor te laten draaien.
-GPIO.output(5, GPIO.LOW)    	  # Als je de HIGH en LOW omdraaid veranderd de draairichting.
+GPIO.output(6, GPIO.HIGH)   	# Per motor moet er altijd 1 pin HIGH en 1 pin Low zijn om de motor te laten draaien.
+GPIO.output(5, GPIO.LOW)    	# Als je de HIGH en LOW omdraaid veranderd de draairichting.
 time.sleep(1)                   # wacht 1 seconde
 RECHTS.stop()                   # Haal de spanning van de rechter motor, let op de GPIO pinnen blijven High !!!
 
