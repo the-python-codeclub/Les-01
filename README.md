@@ -4,6 +4,10 @@ korte uitleg over de techniek:
 Om verbinding te kunnen maken met de Raspberry Pi moet je eerst een aantal zaken instellen op je laptop.  
 De stappen die je moet doorlopen staan hier beschreven: https://github.com/the-python-codeclub/Les-01/wiki
 
+Om gebruikt te kunnen maken van de RPi.GPIO Library moeten we deze eerst installeren.  
+Het installeren van Libraries gaat doormiddel van het gebruik van het programma pip.  
+sudo pip3 install RPi.GPIO
+
 #opdracht 1: Voeg code toe zodat ook het linker wiel naar voren gaat draaien met snelheid 50
 
 #opdracht 2: wacht 2 seconde en rijd dan 2sec achteruit met snelheid 30
